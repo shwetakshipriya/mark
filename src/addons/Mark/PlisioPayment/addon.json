@@ -1,0 +1,59 @@
+{
+    "legacy_addon_id": "",
+    "title": "Plisio Payment Profile",
+    "version_id": 1000010,
+    "version_string": "1.0.0",
+    "dev": "Mark",
+    "description": "A XenForo 2.2 addon integrating with Plisio API in a white-label manner for payment profiles.",
+    "require": {
+      "XF": [2020070, "XenForo 2.2 or higher required"]
+    },
+    "install": [
+      "Mark\\PlisioPayment\\Setup"
+    ],
+    "routes": {
+      "public": {
+        "plisio-payment": {
+          "builds": [
+            {
+              "controller": "Mark\\PlisioPayment:Payment",
+              "action": "index",
+              "route": "plisio-payment"
+            },
+            {
+              "controller": "Mark\\PlisioPayment:Payment",
+              "action": "process",
+              "route": "plisio-payment/process"
+            },
+            {
+              "controller": "Mark\\PlisioPayment:Payment",
+              "action": "status",
+              "route": "plisio-payment/status"
+            },
+            {
+              "controller": "Mark\\PlisioPayment:Webhook",
+              "action": "index",
+              "route": "plisio-payment/webhook"
+            }
+          ]
+        }
+      },
+      "admin": {
+        "plisio-payment": {
+          "builds": [
+            {
+              "controller": "Mark\\PlisioPayment:Settings",
+              "action": "index",
+              "route": "plisio-payment/settings"
+            },
+            {
+              "controller": "Mark\\PlisioPayment:Settings",
+              "action": "save",
+              "route": "plisio-payment/settings/save"
+            }
+          ]
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,22 @@
+<!-- Template: plisio_payment_details -->
+<div class="payment-details">
+    <h2>Payment Details</h2>
+    <p>Please send <strong>{{ payment.amount }}</strong> using <strong>{{ payment.coin }}</strong> on the <strong>{{ payment.network }}</strong> network to the following address:</p>
+    <p><strong>{{ payment.payment_address }}</strong></p>
+    <p><img src="{{ payment.qr_code }}" alt="QR Code" /></p>
+    <p>Time remaining: <span id="countdown">{{ expiration }}</span> seconds</p>
+    <script>
+        // Simple countdown timer script (enhance as needed)
+        var timeRemaining = {{ expiration }};
+        var countdownElem = document.getElementById('countdown');
+        var interval = setInterval(function(){
+            if(timeRemaining <= 0){
+                clearInterval(interval);
+                countdownElem.innerHTML = 'Expired';
+            } else {
+                countdownElem.innerHTML = timeRemaining + ' seconds';
+            }
+            timeRemaining--;
+        }, 1000);
+    </script>
+</div>
