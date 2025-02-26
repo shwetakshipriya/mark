@@ -1,0 +1,14 @@
+<!-- Template: plisio_payment_settings -->
+<form action="{{ link('plisio-payment/settings/save') }}" method="post" class="block">
+    <dl class="ctrlUnit">
+        <dt><label for="ctrl_plisioApiKey">Plisio API Key</label></dt>
+        <dd><input type="text" name="plisioApiKey" id="ctrl_plisioApiKey" value="{{ settings.plisioApiKey }}" /></dd>
+    </dl>
+    <dl class="ctrlUnit">
+        <dt><label for="ctrl_plisioPaymentExpiration">Payment Expiration (seconds)</label></dt>
+        <dd><input type="number" name="plisioPaymentExpiration" id="ctrl_plisioPaymentExpiration" value="{{ settings.plisioPaymentExpiration }}" /></dd>
+    </dl>
+    <!-- Add additional controls for coin icons and enabling/disabling coins as needed -->
+    <input type="submit" value="Save Settings" class="button primary" />
+    {{ csrf_input() }}
+</form>

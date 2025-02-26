@@ -1,0 +1,30 @@
+<!-- Template: plisio_payment_select -->
+<form action="{{ link('plisio-payment/process') }}" method="post">
+    <dl class="ctrlUnit">
+        <dt><label for="ctrl_coin">Select Cryptocurrency</label></dt>
+        <dd>
+            <select name="coin" id="ctrl_coin">
+                <option value="BTC">Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="USDT">Tether (USDT)</option>
+                <!-- Add more coins as needed -->
+            </select>
+        </dd>
+    </dl>
+    <dl class="ctrlUnit">
+        <dt><label for="ctrl_network">Select Network</label></dt>
+        <dd>
+            <select name="network" id="ctrl_network">
+                <option value="ERC20">ERC-20</option>
+                <option value="TRC20">TRC-20</option>
+                <!-- Add more networks as needed -->
+            </select>
+        </dd>
+    </dl>
+    <dl class="ctrlUnit">
+        <dt><label for="ctrl_amount">Amount</label></dt>
+        <dd><input type="text" name="amount" id="ctrl_amount" value=""/></dd>
+    </dl>
+    <input type="submit" value="Pay Now" class="button primary" />
+    {{ csrf_input() }}
+</form>
